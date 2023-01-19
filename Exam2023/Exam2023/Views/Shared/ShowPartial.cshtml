@@ -1,0 +1,12 @@
+﻿<hr />
+<p>Denumire: @Model.Denumire</p>
+<p>Descript: @Model.Descriere</p>
+<p>Data Exp: @Model.DataExp</p>
+<p>Reducere: @Model.Procent %</p>
+<p>De la brandul: @ViewBag.Brand.Nume</p>
+<a href="/GiftCards/Edit/@Model.Id">Editeaza card</a>
+<form method="post"
+      action="/GiftCards/Delete/@Model.Id">
+    <button type="submit">Sterge cardul</button>
+</form>
+<br />

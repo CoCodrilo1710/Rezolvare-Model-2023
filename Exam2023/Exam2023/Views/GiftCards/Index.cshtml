@@ -1,0 +1,21 @@
+﻿<h1>All cards with their brand</h1>
+
+<a href="/GiftCards/New/">Adauga card</a>
+<p>@ViewBag.message</p>
+
+@foreach(var giftcard in ViewBag.giftCards)
+{
+    <hr />
+    <p>Denumire: @giftcard.Denumire</p>
+    <p>Descript: @giftcard.Descriere</p>
+    <p>Data Exp: @giftcard.DataExp</p>
+    <p>Reducere: @giftcard.Procent %</p>
+    <p>De la brandul: @giftcard.Brand.Nume</p>
+    <a href="/GiftCards/Show/@giftcard.Id">Vizualizeaza card</a>
+    <a href="/GiftCards/Edit/@giftcard.Id">Editeaza card</a>
+    <form method="post"
+      action="/GiftCards/Delete/@giftcard.Id">
+        <button type="submit">Sterge cardul</button>
+    </form>
+    <br />
+}

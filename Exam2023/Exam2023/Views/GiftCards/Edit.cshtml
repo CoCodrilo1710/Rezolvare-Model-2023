@@ -1,0 +1,47 @@
+﻿@model Exam2023.Models.GiftCard
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "GiftCards", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+    
+    @Html.Label("Denumire", "Denumire card")
+    <br />
+    @Html.TextAreaFor(m => m.Denumire, new { @class = "form-control" })
+    @Html.ValidationMessage("Denumire", null, new { @class ="text-danger" })
+
+    <br />
+    <br />
+
+    @Html.Label("Descriere", "Descriere card")
+    <br />
+    @Html.TextAreaFor(m => m.Descriere, new { @class = "form-control" })
+    @Html.ValidationMessage("Descriere", null, new { @class ="text-danger" })
+
+    <br />
+    <br />
+
+    @Html.Label("DataExp", "Data Expirare card")
+    <br />
+    @Html.EditorFor(m => m.DataExp, new { @class = "form-control" })
+    @Html.ValidationMessage("DataExp", null, new { @class ="text-danger" })
+
+    <br />
+    <br />
+
+    @Html.Label("Procent", "Procent card")
+    <br />
+    @Html.EditorFor(m => m.Procent, new { @class = "form-control" })
+    @Html.ValidationMessage("Procent", null, new { @class ="text-danger" })
+
+    <br />
+    <br />
+
+    <label>Selectati categoria</label>
+    @Html.DropDownListFor(m => m.BrandId, new SelectList(Model.Brands, "Value", "Text"), "Selectati Brandul", new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.BrandId, null, new { @class = "text-danger" })
+    <br />
+    <br />
+    <button class="btn btn-success" type="submit">
+        Editeaza Card
+    </button>
+} 
